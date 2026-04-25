@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anina & Dobromir | Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Pattaya&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #7a4f21;
+            --primary-light: #966737;
+            --secondary: #4c6451;
+            --secondary-light: #ceead1;
+            --background: #F9F7F2;
+            --surface: #ffffff;
+            --text: #2D2926;
+            --text-muted: #50453a;
+            --outline: rgba(131, 116, 105, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-family: 'Pattaya', cursive;
+            font-weight: 400;
+        }
+
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .hero-img {
+            width: 300px;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-date {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-location {
+            font-size: 1.5rem;
+            color: var(--text);
+
+            margin-bottom: 2rem;
+        }
+
+        .btn-rsvp {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(122, 79, 33, 0.2);
+        }
+
+        .btn-rsvp:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 79, 33, 0.3);
+        }
+
+        /* Sections Grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 6rem 0;
+            align-items: center;
+        }
+
+        .details-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .detail-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+
+        .detail-item:hover {
+            background: var(--surface);
+            box-shadow: 0 10px 40px rgba(80, 69, 58, 0.06);
+            border-color: var(--outline);
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .detail-header svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .detail-title {
+            font-size: 1.8rem;
+        }
+
+        .detail-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .image-container {
+            position: relative;
+            height: 600px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.8s ease-in-out, transform 1.2s ease;
+            opacity: 0;
+        }
+
+        .image-container img.active {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .image-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="container">
+        <img src="HeroFlowers.png" alt="Flowers" class="hero-img">
+        <h1 class="hero-title">Анина & Добромир</h1>
+        <p class="hero-date serif"> ви канят на своята сватба</p>
+        <p class="hero-location">6.09.2026 София</p>
+        <p class="serif" style="font-size: 1.1rem; opacity: 0.6; margin-bottom: 2rem;">Кумове: Катерина & Илия</p>
+        <a href="#rsvp" class="btn-rsvp">RSVP</a>
+    </header>
+
+    <main class="container">
+
+        <section class="details-grid">
+            <div class="details-content">
+                <!-- Ceremony -->
+                <div class="detail-item" onclick="showImage('ceremony')">
+                    <div class="detail-header">
+                        <!-- Municipality Icon -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18"></path>
+                            <path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3Z"></path>
+                            <path d="M6 21V10M18 21V10M12 21V14"></path>
+                        </svg>
+                        <h2 class="detail-title">Церемонията</h2>
+                    </div>
+                    <p class="detail-text">
+                        Начало на гражданския брак в 16:00 ч.<br>
+                        <b>ул. Париж 1</b> (до Столична община)
+                    </p>
+                </div>
+
+                <!-- Reception -->
+                <div class="detail-item" onclick="showImage('reception')">
+                    <div class="detail-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+                            <path d="M7 2v20"></path>
+                            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
+                        </svg>
+                        <h2 class="detail-title">Празненството</h2>
+                    </div>
+                    <p class="detail-text">
+                        Welcome Drink, вечеря и танци от 18:00 ч.<br>
+                        <b>Гранд Хотел София</b>: вход откъм Градската градина, ресторант Shades of Red.
+                    </p>
+                </div>
+
+                <!-- Gifts -->
+                <div class="detail-item" onclick="showImage('gifts')">
+                    <div class="detail-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                            <rect x="2" y="7" width="20" height="5"></rect>
+                            <line x1="12" y2="22" x2="12" y1="7"></line>
+                            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                        </svg>
+                        <h2 class="detail-title">Подаръци</h2>
+                    </div>
+                    <p class="detail-text">
+                        Вашето присъствие е най-големият подарък за нас.<br>
+                        Ако все пак решите да ни зарадвате, ще откриете кутия за пожелания на място.
+                    </p>
+                </div>
+            </div>
+
+            <div class="image-container" id="interaction-images">
+                <img src="parij1.jpg" alt="Municipality" id="img-ceremony" class="active">
+                <img src="gh.jpg" alt="Grand Hotel Sofia" id="img-reception">
+                <img src="wedding_flowers.png" alt="Wedding Flowers" id="img-gifts">
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" style="padding: 6rem 0; text-align: center;">
+            <h2 class="serif" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 2rem;">RSVP</h2>
+            <div
+                style="max-width: 800px; margin: 0 auto; background: var(--surface); padding: 2rem; border-radius: 4px; box-shadow: 0 10px 40px rgba(80, 69, 58, 0.06); border: 1px solid var(--outline);">
+                <iframe
+                    data-tally-src="https://tally.so/embed/ob7xL5?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    loading="lazy" width="100%" height="654" frameborder="0" marginheight="0" marginwidth="0"
+                    title="RSVP"></iframe>
+                <script>var d = document, w = "https://tally.so/widgets/embed.js", v = function () { "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) { e.src = e.dataset.tallySrc })) }; if ("undefined" != typeof Tally) v(); else if (d.querySelector('script[src="' + w + '"]') == null) { var s = d.createElement("script"); s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s); }</script>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showImage(type) {
+            // Deactivate all images
+            document.querySelectorAll('#interaction-images img').forEach(img => {
+                img.classList.remove('active');
+            });
+            // Activate selected image
+            document.getElementById('img-' + type).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
